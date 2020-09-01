@@ -3,8 +3,8 @@ import { IParamBuilder, warn } from "@esri/arcgis-rest-request";
  * `SearchQueryBuilder` can be used to construct the `q` param for [`searchItems`](/arcgis-rest-js/api/portal/searchItems#searchItems-search) or [`searchGroups`](/arcgis-rest-js/api/portal/searchGroups#searchGroups-search). By chaining methods, it helps build complex search queries.
  *
  * ```js
- * const startDate = new Date("2020-01-01").valueOf();
- * const endDate = new Date(2020-09-01).valueOf();
+ * const startDate = new Date("2020-01-01");
+ * const endDate = new Date("2020-09-01");
  * const query = new SearchQueryBuilder()
  *  .match("Patrick")
  *  .in("owner")
@@ -215,7 +215,7 @@ export class SearchQueryBuilder implements IParamBuilder {
     if (this.hasTerms) {
       warn(
         // prettier-ignore
-        `\`from(...)\` is not allowed after \`match(...)\` try using \`.from(...).to(...).in(...)\`. Optionally, you may see this because dates are incorrectly formatted. Dates should be a primative Date value, aka a number in milliseconds.  Your query was not modified.`
+        `\`from(...)\` is not allowed after \`match(...)\` try using \`.from(...).to(...).in(...)\`. Optionally, you may see this because dates are incorrectly formatted. Dates should be a primative Date value, aka a number in milliseconds or Date object, ie new Date("2020-01-01").  Your query was not modified.`
       );
       return this;
     }
@@ -237,7 +237,7 @@ export class SearchQueryBuilder implements IParamBuilder {
     if (this.hasTerms) {
       warn(
         // prettier-ignore
-        `\`to(...)\` is not allowed after \`match(...)\` try using \`.from(...).to(...).in(...)\`. Optionally, you may see this because dates are incorrectly formatted. Dates should be a primative Date value, aka a number in milliseconds. Your query was not modified.`
+        `\`to(...)\` is not allowed after \`match(...)\` try using \`.from(...).to(...).in(...)\`. Optionally, you may see this because dates are incorrectly formatted. Dates should be a primative Date value, aka a number in milliseconds or Date object, ie new Date("2020-01-01"). Your query was not modified.`
       );
       return this;
     }
