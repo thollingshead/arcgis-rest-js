@@ -209,7 +209,7 @@ export class SearchQueryBuilder implements IParamBuilder {
     if (this.hasTerms) {
       warn(
         // prettier-ignore
-        `\`from(...)\` is not allowed after \`match(...)\` try using \`.from(...).to(...).in(...)\`. Your query was not modified.`
+        `\`from(...)\` is not allowed after \`match(...)\` try using \`.from(...).to(...).in(...)\`. Optionally, you may see this because dates are incorrectly formatted, not in milliseconds.  Your query was not modified.`
       );
       return this;
     }
@@ -231,7 +231,7 @@ export class SearchQueryBuilder implements IParamBuilder {
     if (this.hasTerms) {
       warn(
         // prettier-ignore
-        `\`to(...)\` is not allowed after \`match(...)\` try using \`.from(...).to(...).in(...)\`. Your query was not modified.`
+        `\`to(...)\` is not allowed after \`match(...)\` try using \`.from(...).to(...).in(...)\`. Optionally, you may see this because dates are incorrectly formatted, not in milliseconds. Your query was not modified.`
       );
       return this;
     }
