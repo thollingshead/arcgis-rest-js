@@ -205,9 +205,13 @@ export class SearchQueryBuilder implements IParamBuilder {
    * Begins a new range query.
    *
    * ```js
+   * 
+   * const NEWYEARS = new Date("2020-01-01")
+   * const TODAY = new Date()
+   * 
    * const query = new SearchQueryBuilder()
-   *   .from(yesterdaysDate)
-   *   .to(todaysDate)
+   *   .from(NEWYEARS)
+   *   .to(TODAY)
    *   .in("created")
    * ```
    */
